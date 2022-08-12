@@ -40,6 +40,16 @@ namespace Aula02
         return area;
         }
 
+        static void escolher(int valor){
+
+        Console.Write("Escolha qual moeda vc quer converter(1 para dolar, 2 para Euro e 3 para Pesos Argentinos): ");
+
+        
+
+
+
+        }
+
 
 
     }
