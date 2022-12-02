@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+
+        <input id="nome" type="text"/>
+        <input id="nasc" type="date"/>
+        <button onclick="submit()">Submit</button>
+    </div>
+
+    <div id="test"></div>
+    <script>
+       function submit(){
+
+        let b = {
+            'nome' : document.getElementById("nome").value,
+            'nasc' : document.getElementById("nasc").value
+        }
+
+        document.getElementById("test").innerText = JSON.stringify(b);
+        return
+
+        fetch("https://localhost:5001/WeatherForecast" ,
+        {
+            'method': 'POST',
+           // 'mode': 'cors',
+            'redirect': 'follow',
+            'headers': {
+                'Content-type': 'aplication/json',
+                'Accept': 'application/json'
+            },
+            'body': JSON.stringify(b)
+        })
+
+
+        /*
+
+        ====C# mexe nas coisas=====
+
+        */
+
+
+        .then(x => x.json())
+        .then(x => {
+
+            document.getElementById("test").innerText = x;
+        /*
+
+        fetch("http://random.dog/woof.json")
+        .then(x => x.json())
+        .then(x => {
+            
+            let im = document.createElement("img")
+            im.src = x.url
+            document.getElementById("test").append(im)
+
+            */
+        })
+
+
+    }
+
+
+ /*
+
+
+
+        document.getElementById("test").innerHTML +=  " <input></input>"
+       
+
+        O JEITO CERTO
+
+        let s = document.createElement("span")
+        s.innerHTML = "ola"
+        document.getElementById("test").append(s)
+
+
+        /*
+        document.getElementById("test").innerHTML   =  '<span id="meuspan"> ola </span>'
+        document.getElementById("meuspan").innerHTML += '<span> aaaaaaaaaaaaaa </span'
+    */
+
+        
+    </script>
+</body>
+</html>
