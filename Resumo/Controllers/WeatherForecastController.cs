@@ -23,12 +23,11 @@ namespace Resumo.Controllers
             _logger = logger;
         }
 
-        [HttpPost]        
+        [HttpPost]
         public Pessoa Post(Pessoa usuario)
-        {  
+        {
 
 
-            usuario.nasc.AddYears(1);
             /*
 
             PESSOA GET
@@ -41,8 +40,8 @@ namespace Resumo.Controllers
             */
 
             return usuario;
-          
-           
+
+
         }
     }
 }
